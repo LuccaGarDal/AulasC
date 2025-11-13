@@ -36,21 +36,6 @@ Nodo* inserir (Nodo* inicio, int valor) {
     
 }
 
-Nodo* consultar(Nodo* inicio, int valor) {
-    Nodo* atual = inicio;
-
-    while (atual != NULL) {
-        if (atual->valor == valor) {
-            return atual;
-        }
-        atual = atual->prox;
-    }
-
-    return NULL; // não encontrou
-}
-
-
-
 int main () {
     Nodo* lista = NULL;
 
