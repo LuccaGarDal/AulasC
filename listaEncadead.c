@@ -2,11 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Definindo estrutura do nó
 typedef struct Nodo {
     int valor;
     struct Nodo* prox;
 } Nodo;
 
+
+// Método para criar nós
 Nodo* criarNodo (int x) {
     Nodo* novo = (Nodo*) malloc(sizeof(Nodo));
     if (novo == NULL)
@@ -20,6 +23,7 @@ Nodo* criarNodo (int x) {
     
 }
 
+// Método para inserir nós na cabeça da lista
 Nodo* inserir (Nodo* inicio, int valor) {
     Nodo* novo = criarNodo(valor);
     if(inicio == NULL) {
@@ -36,6 +40,7 @@ Nodo* inserir (Nodo* inicio, int valor) {
     
 }
 
+// Método para consultar nós de acordo com o valor
 Nodo* consultar(Nodo* inicio, int valor) {
     Nodo* atual = inicio;
 
@@ -46,7 +51,17 @@ Nodo* consultar(Nodo* inicio, int valor) {
         atual = atual->prox;
     }
 
-    return NULL; // não encontrou
+    return NULL;
+}
+
+void imprimir (Nodo* inicio) {
+    Nodo * atual = inicio;
+
+    while (atual != NULL) {
+        printf("%d -> ", atual->valor);
+        atual = atual->prox;   
+    }
+    printf("NULL\n");
 }
 
 
@@ -62,6 +77,11 @@ int main () {
 
     lista = inserir(lista, 30);
     printf("Inseriu 30\n");
+
+    Nodo* resultado = consultar(lista, 20);
+    printf("Resultado: %d\n", resultado->valor);
+
+    imprimir(lista);
 
     return 0;
 }
