@@ -23,7 +23,7 @@ Nodo* criarNodo (int x) {
     
 }
 
-// Método para inserir nós na cabeça da lista
+// Método para inserir nós na cabeça da fila
 Nodo* inserir (Nodo* inicio, int valor) {
     Nodo* novo = criarNodo(valor);
     if(inicio == NULL) {
@@ -54,6 +54,7 @@ Nodo* consultar(Nodo* inicio, int valor) {
     return NULL;
 }
 
+// Método para imprimir a lista
 void imprimir (Nodo* inicio) {
     Nodo * atual = inicio;
 
@@ -64,7 +65,35 @@ void imprimir (Nodo* inicio) {
     printf("NULL\n");
 }
 
+// Método para remover um nó da lista
+Nodo* deletar (Nodo* inicio, int valor) {
+    if (inicio == NULL){
+        return NULL;
+    }
+    Nodo* atual = inicio;
+    Nodo* anterior = NULL;
 
+    if (atual->valor == valor){
+     Nodo* temp = atual->prox;
+     free(atual);   
+     return temp;
+
+    }
+
+    while (atual-> valor != valor) {
+        anterior = atual;
+        atual = atual->prox;
+    }
+
+    if (atual == NULL) {
+        return inicio; 
+    }
+
+    anterior->prox = atual->prox;
+    free(atual);
+    
+    return inicio;
+}
 
 int main () {
     Nodo* lista = NULL;
@@ -80,6 +109,8 @@ int main () {
 
     Nodo* resultado = consultar(lista, 20);
     printf("Resultado: %d\n", resultado->valor);
+
+    lista = deletar(lista, 20);
 
     imprimir(lista);
 
