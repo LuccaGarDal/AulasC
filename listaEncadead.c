@@ -80,7 +80,7 @@ Nodo* deletar (Nodo* inicio, int valor) {
 
     }
 
-    while (atual-> valor != valor) {
+    while (atual != NULL && atual-> valor != valor) {
         anterior = atual;
         atual = atual->prox;
     }
@@ -96,23 +96,5 @@ Nodo* deletar (Nodo* inicio, int valor) {
 }
 
 int main () {
-    Nodo* lista = NULL;
-
-    lista = inserir(lista, 10);
-    printf("Inseriu 10\n");
-
-    lista = inserir(lista, 20);
-    printf("Inseriu 20\n");
-
-    lista = inserir(lista, 30);
-    printf("Inseriu 30\n");
-
-    Nodo* resultado = consultar(lista, 20);
-    printf("Resultado: %d\n", resultado->valor);
-
-    lista = deletar(lista, 20);
-
-    imprimir(lista);
-
-    return 0;
+    
 }
