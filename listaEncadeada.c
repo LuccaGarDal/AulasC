@@ -23,7 +23,7 @@ Nodo* criarNodo (int x) {
     
 }
 
-// Método para inserir nós na cabeça da fila
+// Método para inserir nós no final da fila
 Nodo* inserir (Nodo* inicio, int valor) {
     Nodo* novo = criarNodo(valor);
     if(inicio == NULL) {
@@ -80,7 +80,7 @@ Nodo* deletar (Nodo* inicio, int valor) {
 
     }
 
-    while (atual != NULL && atual-> valor != valor) {
+    while (atual != NULL && atual->valor != valor) {
         anterior = atual;
         atual = atual->prox;
     }
