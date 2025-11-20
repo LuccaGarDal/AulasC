@@ -25,7 +25,6 @@ Nodo* incluir(Nodo* raiz, int valor) {
     } else if (valor > raiz->valor) {
         raiz->direita = incluir(raiz->direita, valor);
     }
-
     return raiz;
 }
 
@@ -96,5 +95,112 @@ void posOrdem(Nodo* raiz) {
 }
 
 int main () {
+    int opcao = 1;
+    Nodo* raiz = NULL;
+    int valor;
+    int option;
+    while (opcao != 0)
+    {
+        printf("\n***MENU DE OPÇÕES***\n");
+        printf("1 - Incluir nó.\n");
+        printf("2 - Remover nó.\n");
+        printf("3 - Buscar pré-ordem.\n");
+        printf("4 - Buscar em ordem. \n");
+        printf("5 - Buscar pós-ordem.\n");
+        printf("0 - Sair do menu.\n");
+        scanf("%d", &opcao);
+        switch (opcao) {
+            case 1:
+                printf("Digite o valor do nó que deseja incluir: ");
+                scanf("%d", &valor);
+                raiz = incluir(raiz, valor);
+                printf("Nó incluído na árvore!\n");
+
+                printf("Continuar?\n");
+                printf("1 - Sim\n");
+                printf("2 - Não\n");
+                scanf("%d", &option);
+
+                if (option == 2)
+                {
+                    printf("Encerrando o programa...\n");
+                    opcao = 0;
+                }
+                break;
+                
+            case 2:
+                printf("Digite o valor do nó que deseja remover: ");
+                scanf("%d", &valor);
+                raiz = remover(raiz, valor);
+                printf("Nó removido da árvore!\n");
+
+                printf("Continuar?\n");
+                printf("1 - Sim\n");
+                printf("2 - Não\n");
+                scanf("%d", &option);
+                
+                if (option == 2)
+                {
+                    printf("Encerrando o programa...\n");
+                    opcao = 0;
+                }
+                break;
+            case 3:
+                printf("***Pré-ordem***\n");
+                preOrdem(raiz);
+                printf("\n");
+
+                printf("Continuar?\n");
+                printf("1 - Sim\n");
+                printf("2 - Não\n");
+                scanf("%d", &option);
+                
+                if (option == 2)
+                {
+                    printf("Encerrando o programa...\n");
+                    opcao = 0;
+                }
+                break;
+            case 4:
+                printf("***Em ordem***\n");
+                emOrdem(raiz);
+                printf("\n");
+
+                printf("Continuar?\n");
+                printf("1 - Sim\n");
+                printf("2 - Não\n");
+                scanf("%d", &option);
+                
+               if (option == 2)
+                {
+                    printf("Encerrando o programa...\n");
+                    opcao = 0;
+                }
+                break;
+            case 5:
+                printf("***Pós-ordem***\n");
+                posOrdem(raiz);
+                printf("\n");
+
+                printf("Continuar?\n");
+                printf("1 - Sim\n");
+                printf("2 - Não\n");
+                scanf("%d", &option);
+                
+                if (option == 2)
+                {
+                    printf("Encerrando o programa...\n");
+                    opcao = 0;
+                }
+                break;
+            case 0:
+                printf("Encerrando o programa...\n");
+                break;
+            default:
+                printf("Opção inválida!\n");
+        }
+
+    }
+    return 0;
     
 }
