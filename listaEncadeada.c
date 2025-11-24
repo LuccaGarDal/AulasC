@@ -96,6 +96,5 @@ Nodo* deletar (Nodo* inicio, int valor) {
 }
 
 int main () {
-    printf ("Testando");
     
 }
