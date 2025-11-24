@@ -7,6 +7,7 @@ typedef struct Nodo {
     struct Nodo* direita;
 } Nodo;
 
+//Cria nós
 Nodo* criarNodo(int valor) {
     Nodo* novo = (Nodo*) malloc(sizeof(Nodo));
     novo->valor = valor;
@@ -15,6 +16,7 @@ Nodo* criarNodo(int valor) {
     return novo;
 }
 
+//Inclui nós dentro da árvore
 Nodo* incluir(Nodo* raiz, int valor) {
     if (raiz == NULL) {
         return criarNodo(valor);
@@ -28,6 +30,7 @@ Nodo* incluir(Nodo* raiz, int valor) {
     return raiz;
 }
 
+//Encontra o menor valor da subárvore
 Nodo* encontrarMinimo(Nodo* raiz) {
     while (raiz->esquerda != NULL) {
         raiz = raiz->esquerda;
@@ -35,6 +38,7 @@ Nodo* encontrarMinimo(Nodo* raiz) {
     return raiz;
 }
 
+//Remove nós da árvore
 Nodo* remover(Nodo* raiz, int valor) {
     if (raiz == NULL) {
         return NULL;
@@ -70,6 +74,7 @@ Nodo* remover(Nodo* raiz, int valor) {
     return raiz;
 }
 
+//Exibe nós em pré-ordem (raiz -> esquerda -> direita)
 void preOrdem(Nodo* raiz) {
     if (raiz != NULL) {
         printf("%d ", raiz->valor);
@@ -78,6 +83,7 @@ void preOrdem(Nodo* raiz) {
     }
 }
 
+//Exibe nós em ordem (esquerda -> raiz -> direita)
 void emOrdem(Nodo* raiz) {
     if (raiz != NULL) {
         emOrdem(raiz->esquerda);
@@ -86,6 +92,7 @@ void emOrdem(Nodo* raiz) {
     }
 }
 
+//Exibe nós em pós-ordem (esquerda -> direita -> raiz)
 void posOrdem(Nodo* raiz) {
     if (raiz != NULL) {
         posOrdem(raiz->esquerda);
